@@ -1,0 +1,54 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background-color: silver;
+  display: flex;
+  justify-content: center;
+}
+
+#baseCard {
+  border: solid 3px;
+  border-radius: 10px;
+  width: 100px;
+  height: 150px;
+  margin-left: 30px;
+  background-color: white;
+}
+
+#iconTop {
+  font-size: 30px;
+  margin-left: 2px;
+}
+
+#numMid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+#iconBot {
+  display: flex;
+  float: inline-end;
+  justify-content: flex-end;
+  font-size: 30px;
+  margin-bottom: 5px;
+  margin-right: 2px;
+}
+
+#randomButton {
+  width: 150px;
+  height: 40px;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 5px;
+  border: solid 2px black;
+  border-radius: 15px;
+  background: crimson;
+  color: beige;
+}
+
+#randomButton:hover {
+  background: black;
+  border: solid 2px red;
+}
