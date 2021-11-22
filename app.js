@@ -1,77 +1,63 @@
-import "./style.css";
+let btnCreate = document.getElementById("btnCreate");
+let saveCard = [];
 
-window.onload = function () {
-    let bsCard = document.createElement("div");
-    bsCard.id = "baseCard";
-    document.querySelector("#bodyCard").appendChild(bsCard);
+btnCreate.addEventListener("click", createCards);
 
-    let iconUp = document.createElement("spam");
-    iconUp.id = "iconTop";
-    iconUp.className = "colores";
-    document.querySelector("#baseCard").appendChild(iconUp);
+function createCards() {
 
-    let num = document.createElement("spam");
-    num.id = "numMid";
-    num.className = "colores";
-    document.querySelector("#baseCard").appendChild(num);
+    saveCard = [];
+    document.getElementById("row").innerHTML = "";
 
-    let iconDown = document.createElement("spam");
-    iconDown.id = "iconBot";
-    iconDown.className = "colores";
-    document.querySelector("#baseCard").appendChild(iconDown);
+    let numberOfCards = document.getElementById("numberOfCards").value;
+    let cards = ["heart", "crown", "gem", "spa"];
+    let simbolCard;
+    let randomCard;
+    let randomNumber;
 
-    let btn = document.createElement("button");
-    btn.id = "randomButton";
-    btn.onclick = showCard;
-    btn.type = "button";
-    btn.innerHTML = "Random Card";
-    document.querySelector("#bodyCard").appendChild(btn);
+    for (let counter = 1; counter <= numberOfCards; counter++) {
 
-    function showCard() {
-        let cards = ["♥", "♦", "♣", "♠"];
-        let numbers = [
-            "A",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "J",
-            "Q",
-            "K"
-        ];
+        randomCard = Math.floor(Math.random() * cards.length);
+        simbolCard = cards[randomCard];
+        randomNumber = Math.floor(Math.random() * 14);
 
-        function randomNumber(arr) {
-            let x = Math.floor(Math.random() * arr.length);
-
-            return x;
+        if (randomNumber == 0) {
+            randomNumber = Math.floor(Math.random() * 14);
+        } else if (randomNumber == 1) {
+            randomNumber = "A";
+        } else if (randomNumber == 11) {
+            randomNumber = "J";
+        } else if (randomNumber == 12) {
+            randomNumber = "Q";
+        } else if (randomNumber == 13) {
+            randomNumber = "K";
         }
 
-        let ininumObt = randomNumber(numbers);
-        let inipntObt = randomNumber(cards);
-        let numObt = numbers[ininumObt];
-        let pntObt = cards[inipntObt];
+        saveCard.push({
+            number: randomNumber,
+            simbol: simbolCard,
+        });
+        console.log(saveCard);
 
-        if (pntObt === "♥" || pntObt === "♦") {
-            document.querySelector("#iconTop").style.color = "red";
-            document.querySelector("#numMid").style.color = "red";
-            document.querySelector("#iconBot").style.color = "red";
-        } else {
-            document.querySelector("#iconTop").style.color = "black";
-            document.querySelector("#numMid").style.color = "black";
-            document.querySelector("#iconBot").style.color = "black";
-        }
 
-        document.getElementById("iconTop").innerHTML = pntObt;
-        document.getElementById("iconBot").innerHTML = pntObt;
-        document.getElementById("numMid").innerHTML = numObt;
+        document.getElementById("row").innerHTML += `
+    <div class="card">
+    <div class="containerCard">
+        <div id="containerIconUp" class="fillCards">
+            <i class="fas fa-${simbolCard}"></i>
+        </div>
+        <div id="containerNumber" class="fillCards">
+            <p>${randomNumber}</p>
+        </div>
+        <div id="containerIconDown" class="fillCards">
+            <i class="fas fa-${simbolCard}"></i>
+        </div>
+    </div>
+</div>`;
     }
 
-    let timer = setInterval(function () {
-        showCard();
-    }, 10000);
-};
+}
+
+setInterval(function(){
+    createCards()
+}, 10000)
+

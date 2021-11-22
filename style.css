@@ -1,54 +1,91 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
-
-body {
-  background-color: silver;
-  display: flex;
-  justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-#baseCard {
-  border: solid 3px;
-  border-radius: 10px;
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #d2e4e4;
+  padding: 20px;
+}
+
+.input p{
+  display: inline-block;
+  font-size: 150%;
+  margin-right: 20px;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+  color: black;
+  border-radius: 5px;
   width: 100px;
+  padding-left: 5px;
+}
+
+.text2{
+  display: inline-block;
+  font-size: 100%;
+  margin-right: 20px;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em blue, 0 0 0.2em blue;
+  color: black;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+#numberOfCards {
+  height: 30px;
+  border-radius: 5px;
+  width: 20%;
+  padding: 5px;
+}
+
+.btn {
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #0a5353;
+}
+
+.container-row {
+  min-height: 45vh;
+}
+
+.card {
+  margin: 20px 10px;
   height: 150px;
-  margin-left: 30px;
-  background-color: white;
+  background: #fff;
+  width: 100px;
+  overflow: hidden;
+  display: inline-block;
+  box-shadow:rgba(0, 2, 2, 0.3) 0px 0px 10px 5px;
+  border: 1px solid black;
 }
 
-#iconTop {
-  font-size: 30px;
-  margin-left: 2px;
+.containerCard {
+  margin: 10px;
+  font-size: 180%;
+  height: 100%;
 }
 
-#numMid {
+.fillCards {
+  height: 33.33%;
+}
+
+#containerNumber {
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 40px;
 }
-
-#iconBot {
-  display: flex;
-  float: inline-end;
-  justify-content: flex-end;
-  font-size: 30px;
-  margin-bottom: 5px;
-  margin-right: 2px;
+#containerIconDown {
+  float: right;
 }
-
-#randomButton {
-  width: 150px;
-  height: 40px;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-left: 5px;
-  border: solid 2px black;
-  border-radius: 15px;
-  background: crimson;
-  color: beige;
+#containerIconDown p {
+  transform: rotate(180deg);
 }
-
-#randomButton:hover {
-  background: black;
-  border: solid 2px red;
+.fa-heart{
+  color: red;
+}
+.fa-gem{
+  color: red;
 }
